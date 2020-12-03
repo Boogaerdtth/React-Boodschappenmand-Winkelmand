@@ -20,7 +20,6 @@ class Container extends React.Component {
         }
     }
     render() {
-        // console.log(this.state.groceryItems)
         return (
             <div className="container">
                 <GroceryList container={this.state} />
@@ -30,6 +29,5 @@ class Container extends React.Component {
         )
     }
 }
-// 
 
 export default Container
