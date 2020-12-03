@@ -1,7 +1,7 @@
 import React from 'react'
 import GroceryList from './components/GroceryList'
 import ShoppingCart from './components/ShoppingCart'
-// key={props.item.id} ,item={props.item}
+
 
 class Container extends React.Component {
     constructor(props) {

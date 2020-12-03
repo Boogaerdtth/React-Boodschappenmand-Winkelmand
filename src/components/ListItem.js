@@ -1,10 +1,9 @@
 import React from 'react'
 
 function ListItem(props) {
-    const allGroceryItems = props.list.map(item => item = item.title)
     return (
         <div>
-            {allGroceryItems}
+            <h1>{props.title}</h1>
         </div>
     )
 }

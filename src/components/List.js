@@ -1,12 +1,13 @@
 import React from 'react'
 import ListItem from './ListItem'
-// import Container from '../Container'
 
 function List(props) {
+    const allGroceryItems = props.grocerylist.groceryItems.map(item => <ListItem key={item.id} title={item.title} />)
     return (
         <div>
             <ul>
-                <ListItem list={props.grocerylist.groceryItems} />
+                {allGroceryItems}
+                bier
 
             </ul>
         </div>
