@@ -20,14 +20,16 @@ class Container extends React.Component {
         }
     }
     render() {
+        // console.log(this.state.groceryItems)
         return (
             <div className="container">
-                <GroceryList data={this.state} />
-                <ShoppingCart data={this.state} />
+                <GroceryList container={this.state} />
+                <ShoppingCart container={this.state} />
 
             </div>
         )
     }
 }
+// 
 
 export default Container

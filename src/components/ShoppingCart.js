@@ -3,7 +3,7 @@ import React from 'react'
 
 
 function ShoppingCart(props) {
-    const allShoppingListItems = props.data.shoppingListItems.map(item => item.title)
+    const allShoppingListItems = props.container.shoppingListItems.map(item => item.title)
     return (
         <div>
             <h1>Winkelmandje</h1>
