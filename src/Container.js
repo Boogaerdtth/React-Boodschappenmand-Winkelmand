@@ -15,7 +15,8 @@ class Container extends React.Component {
                 { id: 5, title: "Brood" }
             ],
             shoppingListItems: [
-                { id: 1, title: "Bananen" }
+                { id: 1, title: "Bananen" },
+                { id: 2, title: "Aardappels" }
             ]
         }
         this.handleClick = this.handleClick.bind(this)
@@ -26,6 +27,7 @@ class Container extends React.Component {
         })
     }
     render() {
+
         return (
             <div className="container">
                 <GroceryList container={this.state} />
