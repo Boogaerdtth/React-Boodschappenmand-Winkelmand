@@ -18,6 +18,12 @@ class Container extends React.Component {
                 { id: 1, title: "Bananen" }
             ]
         }
+        this.handleClick = this.handleClick.bind(this)
+    }
+    handleClick() {
+        this.setState(() => {
+            return {}
+        })
     }
     render() {
         return (

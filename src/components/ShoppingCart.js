@@ -3,14 +3,13 @@ import List from './List'
 
 
 function ShoppingCart(props) {
-    // const allShoppingListItems = props.container.shoppingListItems.map(item => item.title)
+
     return (
-        <div>
+        <div className="shoppingcart" >
             <h1>Winkelmandje</h1>
             <ul>
-                <List grocerylist={props.container} />
+                <List list={props.container} />
             </ul>
-
         </div>
     )
 }

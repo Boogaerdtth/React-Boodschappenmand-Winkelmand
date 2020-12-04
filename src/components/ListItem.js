@@ -2,8 +2,8 @@ import React from 'react'
 
 function ListItem(props) {
     return (
-        <div>
-            <h1>{props.title}</h1>
+        <div className="item" >
+            <h3 onClick={props.handleClick} >{props.title}</h3>
         </div>
     )
 }

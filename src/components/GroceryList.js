@@ -3,12 +3,13 @@ import List from './List'
 
 function GroceryList(props) {
     return (
-        <div>
+        <div className="grocerylist" >
             <h1>Boodschappenlijstje</h1>
-            <List grocerylist={props.container} />
+            <List list={props.container} />
         </div>
     )
 }
+
 
 
 export default GroceryList
