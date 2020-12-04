@@ -7,6 +7,8 @@ class Container extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            inputField: "",
+
             groceryItems: [
                 { id: 1, title: "Appels" },
                 { id: 2, title: "Pak melk" },
@@ -19,18 +21,35 @@ class Container extends React.Component {
                 { id: 2, title: "Aardappels" }
             ]
         }
-        this.handleClick = this.handleClick.bind(this)
+        // this.handleClickGroceryItem = this.handleClickGroceryItem.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
-    handleClick() {
-        this.setState(() => {
-            return {}
+
+    // handleClickGroceryItem(event) {
+    //     this.setState(() => {
+    //         return {inputField: }
+    //     })
+    // }
+    handleChange(event) {
+        const { name, value } = event.target
+        this.setState({
+            [name]: value
+        })
+    }
+    handleSubmit = (event) => {
+        this.setState({
+            inputField: event.target.value
         })
     }
     render() {
 
         return (
             <div className="container">
-                <GroceryList container={this.state} />
+                <GroceryList
+                    container={this.state}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit} />
                 <ShoppingCart container={this.state} />
 
             </div>
