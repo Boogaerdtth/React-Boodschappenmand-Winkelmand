@@ -1,14 +1,12 @@
 import React from 'react'
 // import List from './List'
-import ListItem from './ListItem'
+// import ListItem from './ListItem'
 
 function GroceryList(props) {
-    // console.log(props.handleSubmit)
-    const allGroceryItems = props.container.groceryItems.map(item => <ListItem key={item.id} title={item.title} />)
+    // const allGroceryItems = props.container.groceryItems.map(item => <ListItem key={item.id} title={item.title} />)
 
     // const item = { id: props.container.groceryItems.length + 1, title: props.container.inputField };
     // let addGrocery = allGroceryItems.pop(grocery => grocery(item))
-    // console.log(addGrocery)
 
     // props.handleSubmit = (event) => {
     //     this.setState({
@@ -17,11 +15,10 @@ function GroceryList(props) {
     // }
     // const buttonHandler = (e) => {
     //     e.preventDefault()
-    // console.log(props)
     // props.setState({
     //     ...allGroceryItems, title: props.container.inputField, id: props.container.groceryItems.length + 1
     // })
-
+    console.log(props)
     return (
         <div className="grocerylist" >
             <h1>Boodschappenlijstje</h1>
@@ -35,8 +32,8 @@ function GroceryList(props) {
 
                 <button> Voeg toe </button>
             </form>
-            <h1 >{props.container.inputField}</h1>
-            {allGroceryItems}
+            {props.allGroceryItems}
+
         </div>
     )
 }
