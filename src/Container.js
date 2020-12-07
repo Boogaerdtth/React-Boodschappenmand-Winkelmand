@@ -32,19 +32,12 @@ class Container extends React.Component {
             [name]: value
         })
     }
-    //     this.setState({
-    //         AllGroceryItems: this.state.groceryItems.concat(item)
-    //     }, { inputField: " " })
-    //     console.log(event.target.value)
-    // }
 
     handleSubmit = event => {
-        const item = { id: this.state.groceryItems.length + 1, title: 'abc' };
+        const item = { id: this.state.groceryItems.length + 1, title: this.state.inputField };
         event.preventDefault()
         this.setState({ groceryItems: this.state.groceryItems.concat(item) })
         this.setState({ inputField: " " })
-        console.log(this.state.groceryItems)
-
     }
 
     render() {
