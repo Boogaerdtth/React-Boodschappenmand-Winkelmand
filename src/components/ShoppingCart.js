@@ -1,5 +1,4 @@
 import React from 'react'
-// import List from './List'
 import ListItem from './ListItem'
 
 function ShoppingCart(props) {
@@ -7,7 +6,7 @@ function ShoppingCart(props) {
     return (
         <div className="shoppingcart" >
             <h1>Winkelmandje</h1>
-            <button onClick={props.buttonHandler}> LEEG MAND </button>
+            <button onClick={props.emptyCart}> LEEG MAND </button>
             {allShoppingListItems}
         </div>
     )
