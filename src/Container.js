@@ -38,6 +38,7 @@ class Container extends React.Component {
         })
     }
     handleSubmit = (event) => {
+        event.preventDefault()
         this.setState({
             inputField: event.target.value
         })
@@ -48,9 +49,13 @@ class Container extends React.Component {
             <div className="container">
                 <GroceryList
                     container={this.state}
+                    setState={this.setState}
                     handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit} />
-                <ShoppingCart container={this.state} />
+                    handleSubmit={this.handleSubmit}
+                    inputGroceryHandler={this.inputGroceryHandler} />
+                <ShoppingCart
+                    container={this.state}
+                />
 
             </div>
         )
