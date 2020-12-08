@@ -2,6 +2,8 @@ import React from 'react'
 import ListItem from './ListItem'
 
 function GroceryList(props) {
+    // console.log(props.handleClickGroceryItem)
+    // worden de props goed doorgeven hieronder?
     return (
         <div className="grocerylist" >
             <h1>Boodschappenlijstje</h1>
@@ -9,13 +11,19 @@ function GroceryList(props) {
                 <input
                     type="text"
                     name="inputField"
-                    value={props.container.inputField}
+                    value={props.state.inputField}
                     placeholder="Boodschap!!"
                     onChange={props.handleChange} />
-
                 <button> Voeg toe </button>
             </form>
-            {props.container.groceryItems.map(item => <ListItem key={item.id} title={item.title} />)}
+            <div onClick={props.handleClickGroceryItem}>
+                {props.state.groceryItems.map(item =>
+                    <ListItem
+                        key={item.id}
+                        title={item.title}
+                    // handleClickGroceryItem={props.handleClickGroceryItem} 
+                    />)}
+            </div>
         </div>
     )
 }

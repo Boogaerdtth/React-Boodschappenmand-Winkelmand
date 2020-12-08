@@ -3,11 +3,10 @@ import GroceryList from './components/GroceryList'
 import ShoppingCart from './components/ShoppingCart'
 
 class Container extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
             inputField: "",
-
             groceryItems: [
                 { id: 1, title: "Appels" },
                 { id: 2, title: "Pak melk" },
@@ -24,9 +23,10 @@ class Container extends React.Component {
     }
 
     emptyCart = () => {
-        this.setState({ shoppingListItems: [] });
-    };
-    handleChange(event) {
+        this.setState({ shoppingListItems: [] })
+    }
+
+    handleChange = event => {
         const { name, value } = event.target
         this.setState({
             [name]: value
@@ -34,23 +34,61 @@ class Container extends React.Component {
     }
 
     handleSubmit = event => {
-        const item = { id: this.state.groceryItems.length + 1, title: this.state.inputField };
+        const item = { id: this.state.groceryItems.length + 1, title: this.state.inputField }
         event.preventDefault()
         this.setState({ groceryItems: this.state.groceryItems.concat(item) })
         this.setState({ inputField: " " })
     }
 
+
+
+
+    addNewShoppingListItem = shopItem => {
+        const newShoppingItem = {
+            id: this.state.shoppingListItems.length + 1,
+            title: shopItem,
+            amount: 1
+        }
+
+        this.setState(prevState => {
+            const newList = prevState.shoppingListItems.concat(newShoppingItem)
+            return { shoppingListItems: newList }
+        })
+    }
+
+    addAmountToItem = shopItem => {
+        const shoppingList = [...this.state.shoppingListItems];
+        const newList = shoppingList.map(shoppingItem => {
+            if (shoppingItem.title === shopItem) {
+                shoppingItem.amount++
+            }
+            return shoppingItem
+        })
+        this.setState({ shoppingListItems: newList })
+        console.log(this.addAmountToItem)
+    }
+
+    handleClickGroceryItem = event => {
+        console.log(event.target)
+        const clickedItem = event.target.value
+        const currentShoppingList = this.state.shoppingListItems
+        const shoppingListItem = currentShoppingList.filter(item => item.title === clickedItem)
+        shoppingListItem.length === 0 ? this.addNewShoppingListItem(clickedItem) : this.addAmountToItem(clickedItem)
+    }
     render() {
         return (
             <div className="container">
                 <GroceryList
-                    container={this.state}
+                    state={this.state}
                     setState={this.setState}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
+                    addNewShoppingListItem={this.addNewShoppingListItem}
+                    addAmountToItem={this.addAmountToItem}
+                    handleClickGroceryItem={this.handleClickGroceryItem}
                 />
                 <ShoppingCart
-                    container={this.state}
+                    state={this.state}
                     emptyCart={this.emptyCart}
                 />
             </div>
