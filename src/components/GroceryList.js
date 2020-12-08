@@ -2,8 +2,6 @@ import React from 'react'
 import ListItem from './ListItem'
 
 function GroceryList(props) {
-    // console.log(props.handleClickGroceryItem)
-    // worden de props goed doorgeven hieronder?
     return (
         <div className="grocerylist" >
             <h1>Boodschappenlijstje</h1>
@@ -21,6 +19,7 @@ function GroceryList(props) {
                     <ListItem
                         key={item.id}
                         title={item.title}
+                        amount={item.amount || ""}
                     // handleClickGroceryItem={props.handleClickGroceryItem} 
                     />)}
             </div>

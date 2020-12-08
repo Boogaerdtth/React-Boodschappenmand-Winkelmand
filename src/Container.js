@@ -40,16 +40,12 @@ class Container extends React.Component {
         this.setState({ inputField: " " })
     }
 
-
-
-
     addNewShoppingListItem = shopItem => {
         const newShoppingItem = {
             id: this.state.shoppingListItems.length + 1,
             title: shopItem,
             amount: 1
         }
-
         this.setState(prevState => {
             const newList = prevState.shoppingListItems.concat(newShoppingItem)
             return { shoppingListItems: newList }
@@ -65,7 +61,6 @@ class Container extends React.Component {
             return shoppingItem
         })
         this.setState({ shoppingListItems: newList })
-        console.log(this.addAmountToItem)
     }
 
     handleClickGroceryItem = event => {
@@ -73,7 +68,13 @@ class Container extends React.Component {
         const clickedItem = event.target.value
         const currentShoppingList = this.state.shoppingListItems
         const shoppingListItem = currentShoppingList.filter(item => item.title === clickedItem)
-        shoppingListItem.length === 0 ? this.addNewShoppingListItem(clickedItem) : this.addAmountToItem(clickedItem)
+        // return this.addNewShoppingListItem('hallo')
+        // shoppingListItem.length === 0 
+        //     ? this.addNewShoppingListItem(clickedItem) 
+        //     : this.addAmountToItem(clickedItem)
+        console.log(this.addNewShoppingListItem(25))
+
+        // hij kan wel 'hallo' displayen, maar niet het geklikte item
     }
     render() {
         return (

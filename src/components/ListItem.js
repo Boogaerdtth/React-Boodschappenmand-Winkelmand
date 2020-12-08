@@ -1,15 +1,16 @@
 import React from 'react'
 
 function ListItem(props) {
-    // console.log(props)
-
     return (
         <div className="item" >
-            {/* <li>
+            {/* <h3>
                 <span> {props.title}</span>
                 <span> {props.amount} </span>
-            </li> */}
-            {<h3 >{props.title} {props.amount}</h3>}
+            </h3> */}
+            {<h3 >
+                {props.title}
+                {/* {props.amount}  */}
+            </h3>}
         </div>
     )
 }
