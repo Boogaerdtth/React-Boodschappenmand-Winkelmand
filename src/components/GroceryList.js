@@ -14,13 +14,14 @@ function GroceryList(props) {
                     onChange={props.handleChange} />
                 <button> Voeg toe </button>
             </form>
-            <div onClick={props.handleClickGroceryItem}>
+            <div>
                 {props.state.groceryItems.map(item =>
                     <ListItem
                         key={item.id}
                         title={item.title}
-                        amount={item.amount || ""}
-                    // handleClickGroceryItem={props.handleClickGroceryItem} 
+                        amount={item.amount}
+                        handleClickGroceryItem={props.handleClickGroceryItem}
+                        addNewShoppingListItem={props.addNewShoppingListItem}
                     />)}
             </div>
         </div>

@@ -11,7 +11,7 @@ function ShoppingCart(props) {
                     <ListItem
                         key={item.id}
                         title={item.title}
-                        amount={item.amount || ""}
+                        amount={item.amount}
                     />)}
             </div>
         </div>

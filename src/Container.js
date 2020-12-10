@@ -36,47 +36,56 @@ class Container extends React.Component {
     handleSubmit = event => {
         const item = { id: this.state.groceryItems.length + 1, title: this.state.inputField }
         event.preventDefault()
-        this.setState({ groceryItems: this.state.groceryItems.concat(item) })
+        this.setState({ groceryItems: [...this.state.groceryItems].concat([item]) })
         this.setState({ inputField: " " })
     }
 
-    addNewShoppingListItem = shopItem => {
-        const newShoppingItem = {
-            id: this.state.shoppingListItems.length + 1,
-            title: shopItem,
-            amount: 1
-        }
-        this.setState(prevState => {
-            const newList = prevState.shoppingListItems.concat(newShoppingItem)
-            return { shoppingListItems: newList }
-        })
-    }
 
-    addAmountToItem = shopItem => {
-        const shoppingList = [...this.state.shoppingListItems];
-        const newList = shoppingList.map(shoppingItem => {
-            if (shoppingItem.title === shopItem) {
-                shoppingItem.amount++
-            }
-            return shoppingItem
-        })
-        this.setState({ shoppingListItems: newList })
-    }
+    // deze doet het sowieso
+    // handleClickGroceryItem = shopItem => {
+    //     const clickedItem = shopItem.target
+    //     console.log(clickedItem)
+    //     return this.addNewShoppingListItem('hallo')
 
-    handleClickGroceryItem = event => {
-        console.log(event.target)
-        const clickedItem = event.target.value
-        const currentShoppingList = this.state.shoppingListItems
-        const shoppingListItem = currentShoppingList.filter(item => item.title === clickedItem)
-        // return this.addNewShoppingListItem('hallo')
-        // shoppingListItem.length === 0 
-        //     ? this.addNewShoppingListItem(clickedItem) 
-        //     : this.addAmountToItem(clickedItem)
-        console.log(this.addNewShoppingListItem(25))
-
-        // hij kan wel 'hallo' displayen, maar niet het geklikte item
-    }
     render() {
+
+        const addNewShoppingListItem = itemTitle => {
+            const newShoppingItem = {
+                id: this.state.shoppingListItems.length + 1,
+                title: itemTitle,
+                amount: 1
+            };
+
+            this.setState(prevState => {
+                const newList = prevState.shoppingListItems.concat(newShoppingItem);
+                return {
+                    shoppingListItems: newList
+                };
+            });
+        };
+        const addAmountToItem = itemTitle => {
+            const shoppingList = [...this.state.shoppingListItems];
+            const newList = shoppingList.map(shoppingItem => {
+                if (shoppingItem.title === itemTitle) {
+                    shoppingItem.amount++;
+                }
+                return shoppingItem;
+            });
+            this.setState({ shoppingListItems: newList });
+        };
+
+        const handleClickGroceryItem = event => {
+            const clickedItem = event.target.innerText
+            const currentShoppingList = this.state.shoppingListItems;
+            const shoppingListItem = currentShoppingList.filter(
+                item => item.title === clickedItem
+            );
+
+            shoppingListItem.length === 0
+                ? addNewShoppingListItem(clickedItem)
+                : addAmountToItem(clickedItem);
+        };
+
         return (
             <div className="container">
                 <GroceryList
@@ -86,7 +95,7 @@ class Container extends React.Component {
                     handleSubmit={this.handleSubmit}
                     addNewShoppingListItem={this.addNewShoppingListItem}
                     addAmountToItem={this.addAmountToItem}
-                    handleClickGroceryItem={this.handleClickGroceryItem}
+                    handleClickGroceryItem={handleClickGroceryItem}
                 />
                 <ShoppingCart
                     state={this.state}
