@@ -21,7 +21,6 @@ function GroceryList(props) {
                         title={item.title}
                         amount={item.amount}
                         handleClickGroceryItem={props.handleClickGroceryItem}
-                        addNewShoppingListItem={props.addNewShoppingListItem}
                     />)}
             </div>
         </div>

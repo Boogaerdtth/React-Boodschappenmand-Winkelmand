@@ -35,9 +35,19 @@
   to {
     transform: rotate(360deg);
   }
+
 }
-/* }
-.container {
-  
-} */
+header {
+  background:black;
+  color: whitesmoke;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.container{
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+
 

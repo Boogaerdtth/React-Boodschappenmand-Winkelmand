@@ -2,10 +2,24 @@
     background:grey;
 }
 
-.grocerylist {
-    background:green
-}
+/* .grocerylist {
+    padding: 20px;
+} */
 
-.shoppingcart {
-    background:blue;
+.item {
+    padding: 15px;
 }
+.shoppingcart .item {
+    background: lightblue;
+  }
+  
+  .shoppingcart .item:nth-child(even) {
+    background: lightcyan;
+  }
+  
+  .grocerylist .item {
+    background: lightpink;
+  }
+  .grocerylist .item:nth-child(odd) {
+    background: lightcoral;
+  }
